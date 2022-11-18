@@ -3,7 +3,7 @@ var mongoose = require("mongoose");
 const BloodRequest = new mongoose.Schema({
     HospitalDetails : {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Hospital",
+        ref: 'Hospital',
     },
     BloodType :{
         type : String,
