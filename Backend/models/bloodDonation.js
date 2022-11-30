@@ -1,6 +1,6 @@
 var mongoose=require("mongoose")
 
-const bedDonation=new mongoose.Schema({
+const bloodDonation=new mongoose.Schema({
     DonorName:{
         type:String,
         require:true
@@ -9,17 +9,21 @@ const bedDonation=new mongoose.Schema({
         type:String,
         require:true
     },
-    State:{
-        type:String,
-        require:true
-    },
     City:{
         type:String,
         require:true
     },
-    NoOfBed:{
-        type:Number,
+    State:{
+        type:String,
+        require:true
+    },
+    Gender:{
+        type:String,
+        require:true
+    },
+    BloodType:{
+        type:String,
         require:true
     }
 })
-module.exports=mongoose.model("BedDonation",bedDonation)
+module.exports=mongoose.model("BloodDonation",bloodDonation)

@@ -4,11 +4,9 @@ const HospitalList = require("../models/Hospital");
 exports.GetAllHospital = AsyncHandler ( async (req,res,next)=>{
     const List = await HospitalList.find({
         $and : [
-            {Isverified : "true"},
             {$or : [
                 {Bedavailability : "Beds available"},
                 {Bloodavailability  : "Blood available"},
-                {Oxygenavailability : "Oxygen available"},
             ]}
         ]
     })
@@ -18,7 +16,7 @@ exports.GetAllHospital = AsyncHandler ( async (req,res,next)=>{
 });
 
 exports.GetCityHospital = AsyncHandler ( async ( req,res,next)=>{
-    const City = req.body.city;
+    const City = req.params.city;
     console.log(City);
     const List = await HospitalList.find({
         $and : [

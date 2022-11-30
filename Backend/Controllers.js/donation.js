@@ -7,9 +7,9 @@ const BedReqByHospital = require("../models/bedrequest");
 const Hospital=require("../models/Hospital")
 
 exports.BedDonation = asyncHandler(async (req, res, next) => {
-  const { DonorName, Number, State, City, NoOfBed } = req.body;
+  const { DonorName, Numbers, State, City, NoOfBed } = req.body;
   console.log(req.body);
-  if (!DonorName || !Number || !City || !State || !NoOfBed) {
+  if (!DonorName || !Numbers || !City || !State || !NoOfBed) {
     return res
       .status(500)
       .json({ Error: "Please Fill all the require fields" });
