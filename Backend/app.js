@@ -8,6 +8,8 @@ const patient=require("./routes/Patient")
 const HospitalAuth=require("./routes/HospitalAuth")
 var cors = require('cors');
 const Hospital = require("./models/Hospital");
+require(".env")
+
 app.use(cors());
 //middleware that parse the json
 app.use(express.json())
@@ -25,7 +27,7 @@ app.use((req, res, next) =>{
 });
 
 mongoose
-.connect("mongodb://localhost:27017/BloodDonation", {
+.connect("mongodb+srv://shivangi:Abc1234@blood-donations.4mrxcf6.mongodb.net/?retryWrites=true&w=majority", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
