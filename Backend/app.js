@@ -8,8 +8,9 @@ const patient=require("./routes/Patient")
 const HospitalAuth=require("./routes/HospitalAuth")
 var cors = require('cors');
 const Hospital = require("./models/Hospital");
-require(".env")
 
+require(".env")
+const port= process.env.PORT || 8000
 app.use(cors());
 //middleware that parse the json
 app.use(express.json())
@@ -37,5 +38,5 @@ mongoose
     console.log(err);
 });
 
-app.listen(8000);
+app.listen(port);
 console.log("server started");
