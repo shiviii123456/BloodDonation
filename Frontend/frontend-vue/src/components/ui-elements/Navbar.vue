@@ -19,6 +19,8 @@
         this.$router.push('/donation-blood'); 
         else if(this.btnName==="Donate Bed")
         this.$router.push('/donation-bed');
+        else if(this.btnName==="continue as patient")
+        this.$router.push('/patient-home')
       }
     },
     props:{

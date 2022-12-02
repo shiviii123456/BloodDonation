@@ -3,7 +3,7 @@
     <Navbar :btnName="btnName" />
     <h1>Donate blood and be the reason for someones existence.</h1>
     <div class="button-flex">
-    <ButtonSecondry :btn="btn1"/>
+    <ButtonSecondry :btn="btn1" @click="goToHospital()"/>
     <ButtonSecondry :btn="btn2" @click="goToHome()"/>
     </div>
   </div>
@@ -28,7 +28,10 @@ export default {
    methods:{
    goToHome(){
    this.$router.push('/patient-home'); 
-      }
+      },
+    goToHospital(){
+    this.$router.push('/register'); 
+    }
   }
 };
 </script>

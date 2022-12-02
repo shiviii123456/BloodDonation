@@ -26,7 +26,7 @@
             placeholder="Contact"
             name="Number"
             className="HD-form-input"
-            v-model="form.Number"
+            v-model="form.Numbers"
           />
           <div style='display: "flex", justifyContent: "space-between" '>
             <input
@@ -84,7 +84,7 @@ export default {
     return {
       form: {
         DonorName: "",
-        Number: "",
+        Numbers: "",
         City: "",
         State: "",
         Gender: "",
@@ -101,14 +101,14 @@ export default {
   methods:{
    async formSubmit(e){
       e.preventDefault();
-      const {DonorName,Number,State,City,Gender,BloodType}=this.form
-      if(!DonorName || !Number || !City || !State || !Gender || !BloodType){
+      const {DonorName,Numbers,State,City,Gender,BloodType}=this.form
+      if(!DonorName || !Numbers || !City || !State || !Gender || !BloodType){
       console.warn("Enter all the details")
        this.warn=true
         this.success=false
       }
       else{
-       let result=await axios.post("http://localhost:8000/Donation/Blood",{DonorName,Number,State,City,BloodType});
+       let result=await axios.post("http://localhost:8000/Donation/Blood",{DonorName,Numbers,State,City,BloodType});
        console.log(result)
           this.warn=false
         this.success = true;

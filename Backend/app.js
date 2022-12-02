@@ -5,7 +5,9 @@ const bodyParse=require("body-parser")
 const Donation = require("./routes/Donor");
 const HospitalReq=require("./routes/HospitalRequest")
 const patient=require("./routes/Patient")
+const HospitalAuth=require("./routes/HospitalAuth")
 var cors = require('cors');
+const Hospital = require("./models/Hospital");
 app.use(cors());
 //middleware that parse the json
 app.use(express.json())
@@ -14,6 +16,7 @@ app.use(express.json())
 app.use(Donation)
 app.use(HospitalReq)
 app.use(patient)
+app.use(HospitalAuth)
 app.use((req, res, next) =>{   
   res.setHeader('Access-Control-Allow-Origin',"*"); // to allow all client we use *
   res.setHeader('Access-Control-Allow-Methods',"OPTIONS,GET,POST,PUT,PATCH,DELETE"); //these are the allowed methods 

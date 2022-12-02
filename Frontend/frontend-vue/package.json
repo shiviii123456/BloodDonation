@@ -19,6 +19,7 @@
     "core-js": "^3.8.3",
     "vue": "^3.2.45",
     "vue-router": "^4.0.13",
+    "vue-sidebar-menu": "^5.2.5",
     "vue-simple-alert": "^1.1.1"
   },
   "devDependencies": {

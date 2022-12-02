@@ -5,7 +5,7 @@ const bloodDonation=new mongoose.Schema({
         type:String,
         require:true
     },
-    Number:{
+    Numbers:{
         type:String,
         require:true
     },

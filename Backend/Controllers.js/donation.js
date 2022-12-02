@@ -20,9 +20,9 @@ exports.BedDonation = asyncHandler(async (req, res, next) => {
 });
 
 exports.BloodDonation=asyncHandler(async(req,res,next)=>{
-   const {DonorName,Number,State,City,BloodType}=req.body;
+   const {DonorName,Numbers,State,City,BloodType}=req.body;
    console.log(req.body)
-   if (!DonorName || !Number || !City || !State || !BloodType) {
+   if (!DonorName || !Numbers || !City || !State || !BloodType) {
     return res
       .status(500)
       .json({ Error: "Please Fill all the require fields" });

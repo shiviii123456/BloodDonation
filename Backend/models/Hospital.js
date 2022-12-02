@@ -14,11 +14,6 @@ const HospitalSchema = new mongoose.Schema({
         require : true,
         min : 4
     },
-    Isverified: {
-        type: String,
-        default : "false",
-        require : false
-    },
     InchargeName :
     {
         type: String,
