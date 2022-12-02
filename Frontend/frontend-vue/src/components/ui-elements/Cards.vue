@@ -1,4 +1,5 @@
 <template>
+    <h3 style="text-align:center">{{list.length}} hospital found for blood donation</h3>
     <div class="wrapper-hospital">
     <div className="HospitalCard-Container" v-for="items in list" :key="items.contact">
       <div className="HospitalCard-Details">
@@ -8,13 +9,13 @@
            <font-awesome-icon icon="fa-solid fa-address-book" /> {{items.Address}}
           </p>
         </div>
-        <p>
+        <p v-if="items.Bedavailability==='Beds available'">
          <font-awesome-icon icon="fa-solid fa-bed" />  {{items.Bedavailability}}
         </p>
-        <p>
+        <p v-if="items.Bloodavailability==='Blood available'">
         <font-awesome-icon icon="fa-solid fa-droplet" /> {{items.Bloodavailability}}
         </p>
-        <p className="contact">
+        <p className="contact"  v-if="items.Contact!='UpdateInfo'">
            <font-awesome-icon icon="fa-solid fa-contact-book" /> {{items.Contact}}
         </p>
       </div>
@@ -25,7 +26,7 @@
 export default {
     name:"CardsHospital",
     props:{
-       list:Array
+       list:Array,
     }
 }
 </script>

@@ -6,7 +6,7 @@ exports.GetAllHospital = AsyncHandler ( async (req,res,next)=>{
         $and : [
             {$or : [
                 {Bedavailability : "Beds available"},
-                {Bloodavailability  : "Blood available"},
+                {Bloodavailability  : "Blood available"}
             ]}
         ]
     })
@@ -20,12 +20,10 @@ exports.GetCityHospital = AsyncHandler ( async ( req,res,next)=>{
     console.log(City);
     const List = await HospitalList.find({
         $and : [
-            {Isverified : "true"},
             {City : { $regex: City,$options: 'i'}},
             {$or : [
                 {Bedavailability : "Beds available"},
-                {Bloodaavailability : "Blood available"},
-                {Oxygenavailability : "Oxygen available"},
+                {Bloodaavailability : "Blood available"}
             ]}
         ]
     })
