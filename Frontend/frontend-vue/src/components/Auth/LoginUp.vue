@@ -69,7 +69,8 @@ export default {
         let result=await axios.post("http://localhost:8000/Hospital/Login",data);
         localStorage.setItem("HospitalData",result.data.HospitalDetails.HospitalName)
         localStorage.setItem("token",result.data.token)
-        this.$router.push("/hospital-side");
+        localStorage.setItem("id",result.data.HospitalDetails._id)
+        this.$router.push("/home-hosp");
         }
         catch(error){
            console.log(error)
@@ -81,6 +82,8 @@ export default {
         this.noerror=true
         this.msg="Enter Email or Password"
       }
+      this.email="",
+      this.password=""
    },
     gotoRegister() {
       this.$router.push("/register");

@@ -1,106 +1,153 @@
 <template>
-    <HospitalSide/>
-     <div className="ED-Container">
-      <div className="ED-header">
-        <div>
-          <!-- <p className="ED-h1">{hospitalData.HospitalName}</p> -->
-        </div>
+  <HospitalSide />
+  <div className="ED-Container">
+    <div className="ED-header">
+      <div>
+        <p className="ED-h1">Welcome</p>
+        <p class="ED-h1" v-if="error">{{msg}}</p>
+        <p class="ED-h1" >{{message}}</p>
       </div>
-      <div className="HD-formContainer">
-        <form className="HD-form">
-          <input
-            type="text"
-            placeholder="Incharge Name"
-            name="InchargeName"
-            className="HD-form-input"
-            v-model="InchargeName"
-          />
-          <input
-            type="number"
-            min="0"
-            placeholder="Contact"
-            name="Contact"
-            className="HD-form-input"
-            v-model="Contact"
-          />
-           <input
-            type="text"
-            placeholder="Address"
-            name="InchargeName"
-            className="HD-form-input"
-            v-model="Address"
-          />
-           <input
-            onChange={changeHandler}
-            type="text"
-            placeholder="City"
-            name="InchargeName"
-            className="HD-form-input"
-            v-model="City"
-          />
-            <input
-            onChange={changeHandler}
-            type="text"
-            placeholder="State"
-            name="InchargeName"
-            className="HD-form-input"
-            v-model="State"
-          />
-          <div className="HD-select-wrapper">
-            <select
-              placeholder="City"
-              v-model="Bedavailability"
-            >
-              <option value="Beds available">Beds available</option>
-              <option value="Beds not available">Beds not available</option>
-            </select>
-
-            <select
-              name="Bloodavailability"
-              v-model="Bloodavailability"
-            >
-              <option value="Blood available">Blood available</option>
-              <option value="Blood not available">Blood not available</option>
-            </select>
-          </div>
-          <div className="HD-buttonContainer">
-              <ButtonSecondary btn="Submit"  @click="formSubmit"/>
-          </div>
-        </form>
-      </div>
-      <!-- {success ? <Alert alertdata={alertdata} /> : ""} -->
     </div>
+    <div className="HD-formContainer">
+      <form className="HD-form">
+        <input
+          type="text"
+          placeholder="Incharge Name"
+          name="InchargeName"
+          className="HD-form-input"
+          v-model="InchargeName"
+        />
+        <input
+          type="number"
+          min="0"
+          placeholder="Contact"
+          name="Contact"
+          className="HD-form-input"
+          v-model="Contact"
+        />
+        <input
+          type="text"
+          placeholder="Address"
+          name="InchargeName"
+          className="HD-form-input"
+          v-model="Address"
+        />
+        <input
+          type="text"
+          placeholder="City"
+          name="InchargeName"
+          className="HD-form-input"
+          v-model="City"
+        />
+        <input
+          type="text"
+          placeholder="State"
+          name="InchargeName"
+          className="HD-form-input"
+          v-model="State"
+        />
+        <div className="HD-select-wrapper">
+          <select placeholder="City" v-model="Bedavailability">
+            <option value="Beds available">Beds available</option>
+            <option value="Beds not available">Beds not available</option>
+          </select>
+
+          <select name="Bloodavailability" v-model="Bloodavailability">
+            <option value="Blood available">Blood available</option>
+            <option value="Blood not available">Blood not available</option>
+          </select>
+        </div>
+        <div className="HD-buttonContainer">
+          <ButtonSecondary btn="Submit" @click="formSubmit" />
+        </div>
+      </form>
+    </div>
+    <!-- {success ? <Alert alertdata={alertdata} /> : ""} -->
+  </div>
 </template>
 <script>
-import HospitalSide from "./HospitalSide.vue"
+import HospitalSide from "./HospitalSide.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
-export default{
-    name:"EditDetails",
-    components:{
-        HospitalSide,
-        ButtonSecondary
-    },
-    data(){
-        return{
-           InchargeName:"",
-           Contact:"",
-           Address:"",
-           City:"",
-           State:"",
-           Bedavailability:"",
-           Bloodavailability:""
+import axios from "axios";
+export default {
+  name: "EditDetails",
+  components: {
+    HospitalSide,
+    ButtonSecondary,
+  },
+  data() {
+    return {
+      InchargeName: "",
+      Contact: "",
+      Address: "",
+      City: "",
+      State: "",
+      Bedavailability: "",
+      Bloodavailability: "",
+      error: false,
+      msg: "",
+      message:""
+    };
+  },
+  methods: {
+    async formSubmit(e) {
+      e.preventDefault();
+      try {
+        const id = localStorage.getItem("id");
+        const data = {
+          InchargeName: this.InchargeName,
+          Contact: this.Contact,
+          Address: this.Address,
+          City: this.City,
+          State: this.State,
+          Bedavailability: this.Bedavailability,
+          Bloodavailability: this.Bloodavailability,
+        };
+        if (
+          !this.InchargeName ||
+          !this.Contact ||
+          !this.Address ||
+          !this.City ||
+          !this.State ||
+          !this.Bedavailability ||
+          !this.Bloodavailability
+        ) {
+          this.error = true;
+          this.msg="Enter all the details"
+           this.message=""
+        } else {
+          const result = axios.patch(
+            `http://localhost:8000/Hospital/Details/${id}`,
+            data,
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          );
+         if(result)
+          this.message="Details added Successfully"
+          this.error=false
         }
+      } catch (error) {
+        this.error=true
+        this.msg="Error Occured"
+         this.message=""
+      }
+      (this.InchargeName = ""),
+        (this.Contact = ""),
+        (this.Address = ""),
+        (this.City = ""),
+        (this.State = ""),
+        (this.Bedavailability = ""),
+        (this.Bloodavailability = "");
     },
-    methods:{
-        formSubmit(e){
-            e.preventDefault();
-        }
-    }
-}
+  },
+};
 </script>
 <style scoped>
-.ED-Container{
-     margin-left: 20rem;
+.ED-Container {
+  margin-left: 20rem;
 }
 .HospitalDetailsContainer {
   padding-top: 4rem;
@@ -158,7 +205,7 @@ export default{
 
 .HD-form-input:focus {
   outline: none;
-  box-shadow: inset 0 0 0 1px #FA575C;
+  box-shadow: inset 0 0 0 1px #fa575c;
 }
 
 input[type="number"]::-webkit-outer-spin-button,
@@ -195,7 +242,7 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .HD-select-wrapper select:focus {
   outline: none;
-  border: 2px solid #FA575C;
+  border: 2px solid #fa575c;
 }
 
 .HD-select-wrapper option[value=""][disabled] {
@@ -211,6 +258,9 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 .HD-buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 36rem;
   height: 3.25rem;
   margin: 1.5rem 1.9rem 0.5rem 1.9rem;
@@ -269,7 +319,7 @@ select {
 /* Edit Details */
 
 .ED-Container {
-  width: 100%;
+  width: 60%;
   display: flex;
   flex-direction: column;
   justify-content: center;
