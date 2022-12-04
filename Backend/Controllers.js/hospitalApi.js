@@ -28,5 +28,5 @@ exports.GetCityHospital = AsyncHandler ( async ( req,res,next)=>{
         ]
     })
 
-    res.status(200).json({List : List});
+  return  res.status(200).json({List : List});
 });

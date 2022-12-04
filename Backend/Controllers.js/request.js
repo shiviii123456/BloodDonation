@@ -44,9 +44,9 @@ exports.DeleteBedReq=asyncHandler(async(req,res,next)=>{
 exports.GetAllRequests=asyncHandler(async(req,res,next)=>{
     const hospitals=await hospitalModel.findById(req.params.ids)
     if(!hospitals){
-        res.status(500).json("Hospital Not Found")
+       return res.status(500).json("Hospital Not Found")
     }
     const BloodRequest = await hospBlood.find({HospitalDetails:req.params.ids});
     const BedRequest = await hospBed.find({HospitalDetails:req.params.ids});
-    res.json({BloodRequest,BedRequest});
+   return res.json({BloodRequest,BedRequest});
 })

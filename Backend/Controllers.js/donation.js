@@ -48,7 +48,7 @@ exports.GetHospitalBedRequest=asyncHandler(async (req,res,next)=>{
       "HospitalDetails",
       "HospitalName Contact State City Address InchargeName"
     )
-  res.status(200).json({ BedReq: BedReq });
+ return res.status(200).json({ BedReq: BedReq });
 })
 
 
@@ -58,7 +58,7 @@ exports.GetHospitalBloodRequest=asyncHandler(async (req,res,next)=>{
       "HospitalDetails",
       "HospitalName Contact State City Address InchargeName"
     )
-  res.status(200).json({ BloodReq: BloodReq });
+ return res.status(200).json({ BloodReq: BloodReq });
 })
 
 

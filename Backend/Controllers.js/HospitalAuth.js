@@ -35,7 +35,7 @@ exports.registration = asyncHandler( async (req,res,next) =>{
         //creating new instance of hospital & save details
         const NewHospiital = new HospitalAuth(req.body);
         await NewHospiital.save();
-        res.status(200).json({Message : "hospital Successfully Registred "});
+      return  res.status(200).json({Message : "hospital Successfully Registred "});
     }
     return res.status(500).json("already exist");
 });
@@ -46,7 +46,7 @@ exports.HospitalLogin = asyncHandler ( async (req,res,next)=>{
     console.log(Password+"hello")
     if(!Email || !Password) 
     {
-        res.status(500).json({Error : "please fill all the fields "});
+      return  res.status(500).json({Error : "please fill all the fields "});
     }
 
     //check if hospital is registered or not
@@ -54,7 +54,7 @@ exports.HospitalLogin = asyncHandler ( async (req,res,next)=>{
 
     if(!RegisteredHospital)
     {
-        res.status(500).json({Error : "No hospital is registered with this email id"});
+      return  res.status(500).json({Error : "No hospital is registered with this email id"});
     }
 
     //chekc if password entered is correct or not
