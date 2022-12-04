@@ -111,6 +111,7 @@ export default {
        try{
        let result=await axios.post(baseurl+"/Hospital/Registration",data);
         console.warn(result)
+         this.msg=""
          this.success=true
        }
       catch(error){

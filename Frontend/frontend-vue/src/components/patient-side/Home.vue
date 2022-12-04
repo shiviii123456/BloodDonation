@@ -39,9 +39,14 @@ export default {
   },
   mounted() {
     // let result=await axios.get("http://localhost:8000/getAllHospital")
+    try{
     axios
       .get(baseurl+"/getAllHospital")
       .then((response) => (this.list = response.data.List));
+    }
+    catch(error){
+      console.log("error happened")
+    }
   },
   methods: {
    async getData(inputData) {
@@ -50,10 +55,15 @@ export default {
         console.log("Enter Valid Details")
        }
        else{
+        try{
        let result=await axios.get(baseurl+"/getAllHospital/"+inputData)
        if(result.data.List.length==0) console.warn("no data")
        else console.log(result.data.List)
        this.list=result.data.List
+        }
+        catch(error){
+          console.log("error"+error)
+        }
        this.inputData=""
        }
     },

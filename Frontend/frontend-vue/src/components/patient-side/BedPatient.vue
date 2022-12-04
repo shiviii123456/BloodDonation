@@ -6,8 +6,8 @@
         <div>
           <p class="VF-h1">Please Fill Out Your Details</p>
           <p class="VF-h2">To Support People Donate Beds here</p>
-          <p class="VF-h1 success" v-if="success">Data Added.Thank you for your Contribution</p>
-          <p class="VF-h1 warning" v-if="warn">Enter all the details</p>
+          <p class="VF-h1 success">{{success? "Data Added.Thank you for your Contribution":""}}</p>
+          <p class="VF-h1 warning">{{warn?"Enter all the details":""}}</p>
         </div>
       </div>
 
@@ -95,6 +95,7 @@ export default {
         this.success=false
       }
       else {
+        try{
         let result = await axios.post(baseurl+"/Donation/Bed", {
           DonorName,
           Numbers,
@@ -105,7 +106,10 @@ export default {
         console.log(result);
         this.warn=false
         this.success = true;
-        
+        }
+        catch(error){
+          console.log("error occured")
+        }
       }
       (this.DonorName = ""),
         (this.Numbers = ""),

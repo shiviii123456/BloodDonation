@@ -7,8 +7,8 @@
           <p className="VF-h1">Please Fill Out Your Details</p>
           <p className="VF-h2">Donate Blood and Help Save Lives</p>
         
-          <p class="VF-h1 success" v-if="success">Data Added.Thank you for your Contribution</p>
-          <p class="VF-h1 warning" v-if="warn">Enter all the details</p>
+          <p class="VF-h1 success" >{{success?  "Data Added.Thank you for your Contribution":""}}</p>
+          <p class="VF-h1 warning" >{{warn? "Enter all the details":""}}</p>
         </div>
       </div>
       <div className="HD-formContainer">
@@ -18,7 +18,7 @@
             placeholder="Donor Name"
             name="DonorName"
             className="HD-form-input"
-            v-model="form.DonorName"
+            v-model="DonorName"
           />
           <input
             type="number"
@@ -26,7 +26,7 @@
             placeholder="Contact"
             name="Number"
             className="HD-form-input"
-            v-model="form.Numbers"
+            v-model="Numbers"
           />
           <div style='display: "flex", justifyContent: "space-between" '>
             <input
@@ -34,24 +34,24 @@
               placeholder="State"
               name="State"
               className="HD-form-input input-small"
-              v-model="form.State"
+              v-model="State"
             />
             <input
               type="text"
               placeholder="City"
               name="City"
               className="HD-form-input input-small"
-              v-model="form.City"
+              v-model="City"
             />
           </div>
           <div style='display: "flex", justifyContent: "space-between"'>
-            <select name="Gender" v-model="form.Gender">
+            <select name="Gender" v-model="Gender">
               <option value="" disabled selected>Gender</option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Others">Others</option>
             </select>
-            <select name="BloodGroup" v-model="form.BloodType">
+            <select name="BloodGroup" v-model="BloodType">
               <option value="" disabled selected>Blood Group</option>
               <option value="A+">A+</option>
               <option value="A-">A-</option>
@@ -82,15 +82,14 @@ export default {
   name: "BloodPatient",
   data() {
     return {
-      form: {
         DonorName: "",
         Numbers: "",
         City: "",
         State: "",
         Gender: "",
         BloodType: "",
-        success:false
-      },
+        success:false,
+        warn:false,
       btnName: "Donate Bed",
     };
   },
@@ -101,19 +100,29 @@ export default {
   methods:{
    async formSubmit(e){
       e.preventDefault();
-      const {DonorName,Numbers,State,City,Gender,BloodType}=this.form
+      try{
+      const {DonorName,Numbers,State,City,Gender,BloodType}=this
       if(!DonorName || !Numbers || !City || !State || !Gender || !BloodType){
       console.warn("Enter all the details")
-       this.warn=true
+        this.warn=true
         this.success=false
       }
       else{
        let result=await axios.post(baseurl+"/Donation/Blood",{DonorName,Numbers,State,City,BloodType});
        console.log(result)
           this.warn=false
-        this.success = true;
+          this.success = true;
       }
-       this.form=""
+      }
+      catch(error){
+        console.log("error occured"+error)
+      }
+       this.DonorName="",
+       this.Numbers="",
+       this.City="",
+       this.State="",
+       this.Gender="",
+       this.BloodType=""
     }
   }
 };

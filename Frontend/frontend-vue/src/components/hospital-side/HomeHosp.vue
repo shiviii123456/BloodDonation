@@ -40,13 +40,11 @@ export default{
   font-style: normal;
   color: #364863;
 }
-
 .welcome-img {
   height: 5.6rem;
   width: auto;
   padding-right: 2.5rem;
 }
-
 .HH-h1 {
   font-weight: 600;
   font-size: 1.8rem;
@@ -55,7 +53,6 @@ export default{
   margin: 0%;
   width: 90%;
 }
-
 .HH-h2 {
   max-width: 70%;
   font-weight: 500;
@@ -65,5 +62,4 @@ export default{
   margin: 0%;
   padding-top: 1rem;
 }
-
 </style>
