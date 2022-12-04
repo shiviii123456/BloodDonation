@@ -23,6 +23,7 @@
 import Navbar from "../ui-elements/Navbar.vue";
 import axios from "axios";
 import Cards from "../ui-elements/Cards.vue";
+import baseurl from "../../baseurl.js"
 export default {
   name: "HomePage",
   components: {
@@ -39,7 +40,7 @@ export default {
   mounted() {
     // let result=await axios.get("http://localhost:8000/getAllHospital")
     axios
-      .get("http://localhost:8000/getAllHospital")
+      .get(baseurl+"/getAllHospital")
       .then((response) => (this.list = response.data.List));
   },
   methods: {
@@ -49,7 +50,7 @@ export default {
         console.log("Enter Valid Details")
        }
        else{
-       let result=await axios.get("http://localhost:8000/getAllHospital/"+inputData)
+       let result=await axios.get(baseurl+"/getAllHospital/"+inputData)
        if(result.data.List.length==0) console.warn("no data")
        else console.log(result.data.List)
        this.list=result.data.List

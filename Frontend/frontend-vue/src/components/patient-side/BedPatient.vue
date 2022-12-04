@@ -65,6 +65,8 @@ import "./blood.css";
 import Navbar from "../ui-elements/Navbar.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from "axios";
+import baseurl from '@/baseurl';
+
 export default {
   name: "BedPatient",
   data() {
@@ -93,7 +95,7 @@ export default {
         this.success=false
       }
       else {
-        let result = await axios.post("http://localhost:8000/Donation/Bed", {
+        let result = await axios.post(baseurl+"/Donation/Bed", {
           DonorName,
           Numbers,
           State,

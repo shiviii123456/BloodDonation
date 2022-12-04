@@ -63,7 +63,7 @@ exports.HospitalLogin = asyncHandler ( async (req,res,next)=>{
 
     if(!Passwordmatch)
     {
-        res.status(500).json({Error : "Password entered is incorrect"});
+      return res.status(500).json({Error : "Password entered is incorrect"});
     }
 
     //create jwt token

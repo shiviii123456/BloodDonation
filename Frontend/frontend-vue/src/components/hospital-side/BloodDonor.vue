@@ -10,6 +10,7 @@
 import HospitalSide from "./HospitalSide.vue";
 import DonorCard from "../ui-elements/DonorCard.vue"
 import axios from 'axios';
+import baseurl from "../../baseurl.js"
 export default {
   name: "BloodDonor",
   components: {
@@ -24,7 +25,7 @@ export default {
   },
   async mounted() {
      try{
-      let result=await axios.get("http://localhost:8000/Donation/GetBloodDonorList",{ headers: {"authorization" : `Bearer ${localStorage.getItem("token")}`} });
+      let result=await axios.get(baseurl+"/Donation/GetBloodDonorList",{ headers: {"authorization" : `Bearer ${localStorage.getItem("token")}`} });
       if(result.data.length>0)
       this.list=result.data
       console.warn(result);

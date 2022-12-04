@@ -42,6 +42,7 @@ import Navbar from "../ui-elements/Navbar.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from "axios"
 import "./auth.css";
+import baseurl from '@/baseurl';
 export default {
   name: "LoginUp",
   components: {
@@ -66,7 +67,7 @@ export default {
       };
       if(data.Email || data.Password){
         try{
-        let result=await axios.post("http://localhost:8000/Hospital/Login",data);
+        let result=await axios.post(baseurl+"/Hospital/Login",data);
         localStorage.setItem("HospitalData",result.data.HospitalDetails.HospitalName)
         localStorage.setItem("token",result.data.token)
         localStorage.setItem("id",result.data.HospitalDetails._id)

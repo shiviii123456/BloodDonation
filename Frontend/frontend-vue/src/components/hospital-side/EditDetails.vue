@@ -69,6 +69,7 @@
 import HospitalSide from "./HospitalSide.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from "axios";
+import baseurl from '@/baseurl';
 export default {
   name: "EditDetails",
   components: {
@@ -117,7 +118,7 @@ export default {
            this.message=""
         } else {
           const result = axios.patch(
-            `http://localhost:8000/Hospital/Details/${id}`,
+            `${baseurl}/Hospital/Details/${id}`,
             data,
             {
               headers: {

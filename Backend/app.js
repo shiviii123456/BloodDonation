@@ -8,8 +8,9 @@ const patient=require("./routes/Patient")
 const HospitalAuth=require("./routes/HospitalAuth")
 var cors = require('cors');
 const Hospital = require("./models/Hospital");
+const dotenv = require("dotenv");
+dotenv.config();
 
-require(".env")
 const port= process.env.PORT || 8000
 app.use(cors());
 //middleware that parse the json

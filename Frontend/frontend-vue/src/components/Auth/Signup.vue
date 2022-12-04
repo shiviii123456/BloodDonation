@@ -56,6 +56,7 @@ import Navbar from "../ui-elements/Navbar.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from "axios"
 import "./auth.css"
+import baseurl from '@/baseurl';
 export default {
   name: "SignUp",
   components: {
@@ -108,7 +109,7 @@ export default {
       };
       console.log(data)
        try{
-       let result=await axios.post("http://localhost:8000/Hospital/Registration",data);
+       let result=await axios.post(baseurl+"/Hospital/Registration",data);
         console.warn(result)
          this.success=true
        }
