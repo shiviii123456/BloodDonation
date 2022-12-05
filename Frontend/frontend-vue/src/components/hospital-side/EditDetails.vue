@@ -3,7 +3,8 @@
   <div className="ED-Container">
     <div className="ED-header">
       <div>
-        <p className="ED-h1">Welcome</p>
+        <p className="ED-h1">Welcome {{name}}</p>
+         <p className="ED-h1">Fill Out all the details</p>
         <p class="ED-h1" v-if="error">{{msg}}</p>
         <p class="ED-h1" >{{message}}</p>
       </div>
@@ -87,7 +88,8 @@ export default {
       Bloodavailability: "",
       error: false,
       msg: "",
-      message:""
+      message:"",
+     name:localStorage.getItem("HospitalData")
     };
   },
   methods: {
@@ -349,6 +351,7 @@ select {
   text-align: center;
   letter-spacing: 0.03em;
   color: #364863;
+   margin: .5rem;
 }
 
 .ED-h2 {

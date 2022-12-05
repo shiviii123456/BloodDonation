@@ -4,8 +4,7 @@
     background-attachment: fixed;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    margin-top: 5rem;
     font-family: Montserrat, sans-serif;
     overflow-x: hidden;
   }
@@ -21,7 +20,7 @@
     font-style: normal;
     font-weight: 600;
     font-size: 2rem;
-    line-height: 2.5rem;
+    line-height: 2rem;
     /* identical to box height */
     text-align: center;
     letter-spacing: 0.03em;

@@ -13,7 +13,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap');
  button{
     text-decoration: none;
-    border: 2px solid black;
     box-sizing: border-box;
     border-radius: 6px;
     padding: 0.8rem 1.5rem;
@@ -29,5 +28,8 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     margin:1rem;
+ }
+ button:hover{
+  border: 2px solid #FA575C;
  }
 </style>

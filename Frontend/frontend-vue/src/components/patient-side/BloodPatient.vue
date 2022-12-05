@@ -1,5 +1,6 @@
 <template>
-  <div style="position: 'relative'">
+<LoadersVue v-if="loader" />
+  <div style="position: 'relative'" v-else>
     <Navbar :btnName="btnName" />
     <div className="VF-Container">
       <div className="VF-heading">
@@ -78,6 +79,7 @@ import Navbar from "../ui-elements/Navbar.vue";
 import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from 'axios';
 import baseurl from "../../baseurl.js"
+import LoadersVue from "../ui-elements/LoaderVue.vue"
 export default {
   name: "BloodPatient",
   data() {
@@ -91,16 +93,19 @@ export default {
         success:false,
         warn:false,
       btnName: "Donate Bed",
+      loader:false
     };
   },
   components: {
     Navbar,
     ButtonSecondary,
+    LoadersVue
   },
   methods:{
    async formSubmit(e){
       e.preventDefault();
       try{
+      this.loader=true
       const {DonorName,Numbers,State,City,Gender,BloodType}=this
       if(!DonorName || !Numbers || !City || !State || !Gender || !BloodType){
       console.warn("Enter all the details")
@@ -116,7 +121,8 @@ export default {
       }
       catch(error){
         console.log("error occured"+error)
-      }
+      } 
+       this.loader=false
        this.DonorName="",
        this.Numbers="",
        this.City="",

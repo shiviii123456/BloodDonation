@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <LoadersVue v-if="loader" />
+  <div v-else>
     <Navbar btnName="continue as patient" />
     <div className="HospitalSignup-Container">
       <div className="HospitalSignupCard-Wrapper">
@@ -43,11 +44,13 @@ import ButtonSecondary from "../ui-elements/ButtonSecondary.vue";
 import axios from "axios"
 import "./auth.css";
 import baseurl from '@/baseurl';
+import LoadersVue from "../ui-elements/LoaderVue.vue"
 export default {
   name: "LoginUp",
   components: {
     Navbar,
     ButtonSecondary,
+    LoadersVue
   },
   data() {
     return {
@@ -56,6 +59,7 @@ export default {
       success: false,
       noerror: false,
       msg: "",
+      loader:false
     };
   },
   methods: {
@@ -65,8 +69,9 @@ export default {
         Email: this.email,
         Password: this.password
       };
-      if(data.Email || data.Password){
+      if(data.Email && data.Password){
         try{
+          this.loader=true
         let result=await axios.post(baseurl+"/Hospital/Login",data);
         localStorage.setItem("HospitalData",result.data.HospitalDetails.HospitalName)
         localStorage.setItem("token",result.data.token)
@@ -83,6 +88,7 @@ export default {
         this.noerror=true
         this.msg="Enter Email or Password"
       }
+       this.loader=false
       this.email="",
       this.password=""
    },

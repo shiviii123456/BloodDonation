@@ -38,7 +38,7 @@ export default {
     flex-direction: column;
 }
 .HospitalCard-Container {
-  min-width: 35vw;
+  min-width: 45vw;
   min-height: 12.3rem;
   margin: 2rem 1rem;
   background: #ffffff;
@@ -53,7 +53,6 @@ export default {
   letter-spacing: 0.03em;
   font-weight: 500;
   transition: all 0.3s ease-in-out;
-  border: 3px solid #FA575C;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.08), 0px 1px 6px rgba(0, 0, 0, 0.06);
 }
 .HospitalCard-Container:hover {
@@ -84,7 +83,7 @@ export default {
 .contact {
   position: absolute;
   left: 1.7rem;
-  bottom: 1rem;
+  bottom: 2.2rem;
 }
 .HospitalCard-Details p {
   margin: 0%;

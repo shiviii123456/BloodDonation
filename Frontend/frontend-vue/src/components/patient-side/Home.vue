@@ -1,5 +1,6 @@
 <template>
-  <div class="home-page">
+   <LoadersVue v-if="loader"/>
+  <div class="home-page" v-else>
     <Navbar :btnName="btnName" />
     <h1>Find Nearest blood donation Centers</h1>
     <div class="input-group">
@@ -23,23 +24,27 @@
 import Navbar from "../ui-elements/Navbar.vue";
 import axios from "axios";
 import Cards from "../ui-elements/Cards.vue";
-import baseurl from "../../baseurl.js"
+import baseurl from "../../baseurl.js";
+import LoadersVue from "../ui-elements/LoaderVue.vue"
 export default {
   name: "HomePage",
   components: {
     Navbar,
     Cards,
+    LoadersVue
   },
   data() {
     return {
       list: [],
       inputData: "",
-      btnName:"Become Volunteer"
+      btnName:"Become Volunteer",
+      loader:false
     };
   },
   mounted() {
     // let result=await axios.get("http://localhost:8000/getAllHospital")
     try{
+    this.loader=true
     axios
       .get(baseurl+"/getAllHospital")
       .then((response) => (this.list = response.data.List));
@@ -47,6 +52,7 @@ export default {
     catch(error){
       console.log("error happened")
     }
+    this.loader=false
   },
   methods: {
    async getData(inputData) {
@@ -56,6 +62,7 @@ export default {
        }
        else{
         try{
+          this.loader=true
        let result=await axios.get(baseurl+"/getAllHospital/"+inputData)
        if(result.data.List.length==0) console.warn("no data")
        else console.log(result.data.List)
@@ -64,6 +71,7 @@ export default {
         catch(error){
           console.log("error"+error)
         }
+        this.loader=false
        this.inputData=""
        }
     },

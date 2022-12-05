@@ -12,17 +12,18 @@
 <script>
 import Navbar from "../ui-elements/Navbar.vue";
 import ButtonSecondry from "../ui-elements/ButtonSecondary.vue";
+
 export default {
   name: "LandingPage",
   components: {
     Navbar,
-    ButtonSecondry
+    ButtonSecondry,
   },
   data(){
     return{
         btn1:"continue as hospital",
         btn2:"continue as patient",
-        btnName:"Become Volunteer"
+        btnName:"Become Volunteer",
     }
   },
    methods:{
