@@ -1,6 +1,7 @@
 <template>
    <LoadersVue v-if="loader"/>
   <div class="home-page" v-else>
+    <!-- <ToastSuccess /> -->
     <Navbar :btnName="btnName" />
     <h1>Find Nearest blood donation Centers</h1>
     <div class="input-group">
@@ -26,12 +27,14 @@ import axios from "axios";
 import Cards from "../ui-elements/Cards.vue";
 import baseurl from "../../baseurl.js";
 import LoadersVue from "../ui-elements/LoaderVue.vue"
+// import ToastSuccess from "../ui-elements/Toast.vue"
 export default {
   name: "HomePage",
   components: {
     Navbar,
     Cards,
-    LoadersVue
+    LoadersVue,
+    // ToastSuccess
   },
   data() {
     return {

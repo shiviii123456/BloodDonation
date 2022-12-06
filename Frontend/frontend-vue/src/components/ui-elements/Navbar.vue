@@ -36,6 +36,8 @@ nav{
     background-color: #FA575C;
     font-family: 'Montserrat', sans-serif;
     padding-right: 5rem;
+    position: sticky;
+    top:0%
 }
 h1{
     color: white !important;
