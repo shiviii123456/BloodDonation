@@ -88,7 +88,7 @@ export default {
 
 @media (max-width: 425px) {
   .location{
-    top:1.5rem;
+    top:0.5rem;
     right: 0;
   }
   .HospitalCard-Container {
