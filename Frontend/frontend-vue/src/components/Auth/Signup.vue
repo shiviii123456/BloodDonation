@@ -114,13 +114,21 @@ export default {
       console.log(data)
        try{
         this.loader=true
-       let result=await axios.post(baseurl+"/Hospital/Registration",data);
-        console.warn(result)
+        let result=await axios.post(baseurl+"/Hospital/Registration",data);
+        console.warn(result.data)
+        if(result.data.Message=="hospital Successfully Registred " )
+         {
          this.msg=""
          this.success=true
+         }
+         else{
+            this.msg="Email already in use"
+             this.noerror = true;
+         }
        }
       catch(error){
          this.msg="Error occured, please enter correct details"
+          this.noerror = true;
       }
       }
       this.loader=false
