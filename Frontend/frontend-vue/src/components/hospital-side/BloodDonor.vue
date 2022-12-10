@@ -48,12 +48,17 @@ export default {
 </script>
 <style scoped>
 .right {
-  margin-left: 25rem;
-  margin-top: 5rem;
+  margin-left: 25rem !important;
+  margin-top: 5rem !important;
 }
-.DL-Container{
-    display:flex;
-    flex-wrap: wrap;
+.DL-Container {
+  display: flex;
+  flex-wrap: wrap;
+}
+@media(max-width:830px){
+  .right{
+    margin: 5rem !important;
+  }
 }
 </style>
 

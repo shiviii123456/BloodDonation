@@ -1,13 +1,13 @@
 <template>
+  <Navbar :btnName="btnName" />
   <div class="main-landing">
-    <Navbar :btnName="btnName" />
     <div class="navbar-main">
     <h1>Blood is meant to circulate .</h1>
     <h1>Pass it around.</h1>
     <h5>There are number of countries who don't have adequate number of blood suppliers and face the challenges of blood supply.
        We are trying to make available adequate blood to needy patients all over the world.      
     </h5>
-     <ButtonSecondry :btn="btn1" @click="goToHospital()"/>
+    <ButtonSecondry :btn="btn1" @click="goToHospital()"/>
     <ButtonSecondry :btn="btn2" @click="goToHome()"/>
     </div>
     <div class="navbar-sec">
@@ -49,14 +49,19 @@ export default {
 .main-landing {
   /* background: url("../../assets/images/background-main.jpeg") no-repeat center ;
    background-size: cover; */
+   display: flex;
 }
 .navbar-main{
     margin-left: 5rem;
-    margin-top: 9rem;
-    width: 50%;
+    width: 55%;
+    margin-top:8rem;
+    padding: 0.5rem;
 }
 .navbar-sec{
+    display: flex;
     width: 40%;
+    justify-content: flex-end;
+      margin-top:4rem;
 }
 .navbar-main h5{
   margin: 2rem 0;
@@ -64,13 +69,12 @@ export default {
 img{
   width: 500px;
   height: 500px;
-  top:10rem;
+  /* top:10rem;
   position: absolute;
-  right: 3rem;
+  right: 3rem; */
 }
 h1{
    font-size:3rem;
-   top:5rem;
    font-weight: bold;
    font-family: 'Raleway', sans-serif;
    color: black;
@@ -80,5 +84,44 @@ h1{
     justify-content: center;
     align-items: center;
 }
-
+@media(max-width:1270px){
+  .navbar-main{
+    margin-left: 1rem;
+}
+h1{
+   font-size:2rem;
+}
+}
+@media(max-width:1215px){
+  img{
+  width: 400px;
+  height: 400px;
+  }
+}
+@media(max-width:1060px){
+  img{
+  width: 350px;
+  height: 350px;
+}
+}
+@media(max-width:780px){
+ .main-landing {
+  /* background: url("../../assets/images/background-main.jpeg") no-repeat center ;
+   background-size: cover; */
+   flex-direction: column-reverse;
+}
+.navbar-main{
+    width: 75%;
+    margin: auto;
+}
+.navbar-sec{
+   width:100%;
+   align-items: center;
+   justify-content: center
+}
+img{
+  width: 400px;
+  height: 400px;
+  }
+}
 </style>

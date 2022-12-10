@@ -276,17 +276,17 @@ input[type="number"]::-webkit-inner-spin-button {
 select {
   cursor: pointer;
 }
-@media (max-width: 425px) {
+@media (max-width: 600px) {
   .HD-heading {
     padding: 0% 5vw;
   }
   .HD-form-input {
     margin: 1rem auto;
-    width: 85vw;
+    width: 20rem;
   }
 
   .input-small {
-    width: 36vw;
+    width: 20rem;
   }
 
   .HD-select-wrapper select {
@@ -295,6 +295,7 @@ select {
 
   .HD-select-wrapper {
     margin: auto;
+    flex-direction: column;
   }
   .HD-buttonContainer {
     width: 90vw;
@@ -302,12 +303,11 @@ select {
   }
 
   .ED-Container input {
-    width: 80vw !important;
+    width: 20rem !important;
   }
 
   .ED-Container .HD-select-wrapper select {
-    width: 39vw !important;
-    margin: 1.2rem;
+    width: 20rem !important;
   }
 
   .ED-Container .HD-buttonContainer {
@@ -371,5 +371,10 @@ select {
 .select::after {
   border-radius: 1rem !important;
   border: 1px solid blue !important;
+}
+@media(max-width:830px){
+  .ED-Container{
+    margin-left: 9rem !important;
+  }
 }
 </style>

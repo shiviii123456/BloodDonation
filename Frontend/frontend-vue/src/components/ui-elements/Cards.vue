@@ -38,7 +38,7 @@ export default {
     flex-direction: column;
 }
 .HospitalCard-Container {
-  min-width: 45vw;
+  min-width: 50vw;
   min-height: 12.3rem;
   margin: 2rem 1rem;
   background: #ffffff;
@@ -60,37 +60,25 @@ export default {
   transform: translateY(-5px);
 }
 .HospitalCard-Details svg {
-  font-size: 1 rem;
-  padding-right: 0.5rem;
+  padding-right: 1rem;
 }
 .HN-container {
   display: flex;
-  flex-direction: column;
   width: 100%;
 }
-.hospitalName {
-  font-size: 1.5rem !important;
-  line-height: 1.6rem !important;
-  padding-top: 0% !important;
+.HospitalCard-Details p {
+  margin: 0%;
+  font-size: 1rem;
+  line-height: 1.1rem;
+  display: flex;
+  margin: 1rem;
 }
-.location {
+.location{
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
   padding-top: 0% !important;
   width: 40%;
-}
-.contact {
-  position: absolute;
-  left: 1.7rem;
-  bottom: 2.2rem;
-}
-.HospitalCard-Details p {
-  margin: 0%;
-  padding-top: 1rem;
-  font-size: 1rem;
-  line-height: 1.1rem;
-  display: flex;
 }
 @media (max-width: 700px) {
   .HospitalCard-Container {
@@ -99,11 +87,14 @@ export default {
 }
 
 @media (max-width: 425px) {
-  .location {
-    position: relative;
-    width: 100%;
-    margin-left: 1.5rem !important;
-    margin-bottom: 1rem !important;
+  .location{
+    top:1.5rem;
+    right: 0;
+  }
+  .HospitalCard-Container {
+     margin: 1.5rem 0.5rem;
+     padding: 1rem 1rem;
+     flex-direction: column !important;
   }
 }
 </style>

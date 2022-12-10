@@ -55,7 +55,8 @@ export default {
     catch(error){
       console.log("error happened")
     }
-    this.loader=false
+     this.loader=false
+     this.inputData=""
   },
   methods: {
    async getData(inputData) {
@@ -75,7 +76,7 @@ export default {
           console.log("error"+error)
         }
         this.loader=false
-       this.inputData=""
+        this.inputData=""
        }
     },
   },
@@ -114,5 +115,11 @@ button {
   height: 3.5rem;
   background: #fa575c !important;
   color: white;
+}
+@media(max-width:450px){
+  h1{
+    font-size: 1.7rem;
+     margin: 1.5rem 1.5rem;
+  }
 }
 </style>

@@ -27,9 +27,10 @@
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    margin:1rem;
+    margin:0.5rem;
  }
  button:hover{
   border: 2px solid #FA575C;
  }
+
 </style>

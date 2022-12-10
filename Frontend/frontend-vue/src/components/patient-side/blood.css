@@ -58,7 +58,6 @@
     color: #364863;
     font-size: 1rem;
     border-radius: 1rem;
-    margin: 1.2rem 1.9rem 0.5rem;
     outline: none;
     border: none;
     padding: 0 0 0 2rem;
@@ -66,6 +65,7 @@
     font-family: Montserrat,sans-serif;
     justify-content: center;
     align-items: center;
+    margin: 1rem;
 }
 .HD-form-input:focus{
 border: 2px solid #FA575C;
@@ -82,10 +82,10 @@ border: 2px solid #FA575C;
     line-height: normal;
     border-radius: 1rem;
     height: 3.25rem;
-    margin: 1.2rem 2rem 0.5rem 1.8rem;
     border: 2px solid transparent;
     background: #eef0f4;
     padding: 0px 0px 0px 2rem;
+    margin: 1rem;
   }
   
   .VF-Container select:focus {
@@ -108,14 +108,24 @@ border: 2px solid #FA575C;
   ::-webkit-calendar-picker-indicator {
     padding-right: 0.7rem;
   }
-  
+  @media(max-width:600px){
+    .HD-form-input
+    {
+      width:25rem;
+    }
+    .VF-Container select {
+      width: 25rem !important;
+    }
+  }
   @media (max-width: 426px) {
     .VF-Container .input-small {
-      width: 38vw !important;
+      width: 20rem !important;
     }
-  
+    .HD-form-input
+    {
+      width:20rem;
+    }
     .VF-Container select {
-      width: 44vw !important;
-      margin: 1.2rem 0.5rem 0.5rem 1rem;
+      width: 20rem !important;
     }
   }

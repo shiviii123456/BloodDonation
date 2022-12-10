@@ -27,4 +27,10 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
  }
+@media(max-width:435px){
+  button{
+      font-size: 0.9rem;
+       padding: 0.3rem 1rem;
+  }
+}
 </style>

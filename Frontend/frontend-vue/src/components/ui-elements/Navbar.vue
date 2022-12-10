@@ -37,12 +37,33 @@ nav{
     font-family: 'Montserrat', sans-serif;
     padding-right: 5rem;
     position: sticky;
-    top:0%
+    top:0%;
+    z-index:10 ;
 }
 h1{
     color: white !important;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.1rem;
     margin-left: 3rem;
+    margin-bottom: 0;
+    line-height: 1.2rem;
+    letter-spacing: .04em;
+}
+
+@media (max-width: 700px) {
+nav{
+   padding-right: 1rem;
+}
+h1{
+   margin-left: 1rem;
+}
+}
+@media (max-width: 500px) {
+nav{
+  padding-right: 0rem;
+}
+h1{
+   margin-left: 0rem;
+}
 }
 </style>

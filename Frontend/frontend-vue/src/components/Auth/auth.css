@@ -111,7 +111,7 @@
     filter: brightness(90%);
   }
   
-  @media (max-width: 425px) {
+  @media (max-width: 600px) {
     .HospitalSignupForm-Input {
       width: 80vw;
       margin: 1rem 0rem;

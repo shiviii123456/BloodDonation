@@ -32,7 +32,7 @@ export default{
 </script>
 <style scoped>
 .right{
-    margin-left: 20rem;
+    margin-left: 20rem !important;
 }
 .HH-Container {
   padding-top: 2rem;
@@ -61,5 +61,10 @@ export default{
   letter-spacing: 0.05em;
   margin: 0%;
   padding-top: 1rem;
+}
+@media(max-width:830px){
+  .right{
+    margin: 5rem !important;
+  }
 }
 </style>
