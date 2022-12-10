@@ -66,4 +66,11 @@ h1{
    margin-left: 0rem;
 }
 }
+@media(max-width:500px){
+ h1{
+   margin-left: 0rem;
+   font-size: 0.8rem;
+ }
+
+}
 </style>

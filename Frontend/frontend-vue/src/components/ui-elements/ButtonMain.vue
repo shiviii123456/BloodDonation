@@ -29,8 +29,9 @@
  }
 @media(max-width:435px){
   button{
-      font-size: 0.9rem;
-       padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+      padding: 0.1rem 0.3rem;
   }
 }
+
 </style>
